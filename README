@@ -1,0 +1,11 @@
+This software is released under the Apache 2.0 License. See LICENSE file for more information.
+
+To deploy this software, first fetch the ClioPatria framework by executing:
+./fetchClioPatria.sh
+Then fetch the data you need by browsing the ./data/ directory and following instructions. To get started, you can do
+./fetch.sh
+in the directories ./data/dbpedia/ and ./data/linkedmdb/. This data is sufficient for deploying the module ./1recommend/ and ./2enrich/ at the time of writing.
+
+To start a project of your own, you can execute the script
+./new_project.sh
+This generates a directory with a file structure you can use to build your own ClioPatria based project.
