@@ -1,0 +1,3 @@
+This software is released under the Apache 2.0 License. See the ../LICENSE file for more information.
+
+These files contain components that are used by multiple modules, ie both by ../1recommend and ../2enrich .

@@ -1,0 +1,8 @@
+@prefix implications: <http://notu.be/ontology/implications.nt#> .
+@prefix linkedmdb: <http://data.linkedmdb.org/resource/movie/> .
+@prefix wordnet: <http://purl.org/vocabularies/princeton/wn30/> .
+
+linkedmdb:actor implications:impliesRole wordnet:synset-actor-noun-1 .
+linkedmdb:director implications:impliesRole wordnet:synset-film_director-noun-1 .
+linkedmdb:writer implications:impliesRole wordnet:synset-writer-noun-1 .
+

@@ -1,0 +1,6 @@
+*.nt
+*.gz
+*.bz2
+*.ttl
+*.rdf
+*.owl

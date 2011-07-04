@@ -1,0 +1,55 @@
+This software is released under the Apache 2.0 License. See the ../LICENSE file for more information.
+
+To deploy this module, be sure that ClioPatria is deployed (see parent directory). Then, run 
+$ ./configure.sh
+and do
+$ ./run.sh
+to start the service. This service requires several datasets, see the data/ in the parent directory.
+
+This module has several api's:
+* epg : enriches an EPG using a service that provides BBC PIDs (see below).
+* enrichProgramme : enriches a single BBC program.
+* testset : returns a set of ~12K enriched BBC programs. 
+* sliceOfTestset : returns a subset of the testset.
+
+The input of the epg api is the NoTube Data Warehouse (DWH). The DWH essentially provides a set of BBC program identifiers (pids) for a given time. The JSON below is an example of what a DWH service call could produce. 
+
+[{
+   "uri":"",
+   "pid":"b00v7v3j",
+   "title":"Scoop",
+   "start":"2011-07-01T15:25:00Z",
+   "stop":"2011-07-01T15:50:00Z",
+   "score":"-1",
+   "votes":"-1",
+   "source":"http://www.bbc.co.uk/bbctwo/programmes/schedules/england/2011/07/01.xml",
+   "channelname":"BBC TWO",
+   "enrichments":[],
+   "enrichmentstats":[]
+},
+{
+   "uri":"",
+   "pid":"b00zf53z",
+   "title":"Deadly Art",
+   "start":"2011-07-01T15:50:00Z",
+   "stop":"2011-07-01T16:05:00Z",
+   "score":"-1",
+   "votes":"-1",
+   "source":"http://www.bbc.co.uk/bbctwo/programmes/schedules/england/2011/07/01.xml",
+   "channelname":"BBC TWO",
+   "enrichments":[],
+   "enrichmentstats":[]
+},
+{
+   "uri":"",
+   "pid":"b012fqx4",
+   "title":"Wimbledon",
+   "start":"2011-07-02T13:00:00Z",
+   "stop":"2011-07-02T18:15:00Z",
+   "score":"-1",
+   "votes":"-1",
+   "source":"http://www.bbc.co.uk/bbcone/programmes/schedules/london/2011/07/02.xml",
+   "channelname":"BBC ONE",
+   "enrichments":[],
+   "enrichmentstats":[]
+}]

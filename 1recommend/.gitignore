@@ -1,0 +1,16 @@
+loaddata.pl
+
+*~
+.DS_Store
+run.pl
+RDF-store/
+cache/
+config-enabled/
+settings.db
+users.db
+.pl-history
+httpd.log
+doc/Makefile
+doc/config.log
+doc/config.status
+doc/serql.tex

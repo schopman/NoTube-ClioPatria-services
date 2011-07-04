@@ -1,0 +1,36 @@
+categories/article_categories_en.nt
+	subjects of all dbpedia entities (10,925,705 triples)
+
+categories/skos_categories_en.nt
+	links between skos concepts (2,247,931 triples)
+
+categories/category_labels_en.nt
+	labels of skos concepts (565,108 triples)
+
+infobox/instance_types_en.nt 
+	types of articles (4,017,792 triples, excl 1,448K x rdf:type owl:Thing)
+
+infobox/mappingbased_properties_en.nt
+	(5,436,646 triples, excl 5,699K non-relational triples)
+
+
+=== other useful dbpedia files are: ===
+
+== to present to users ==
+Titles
+Short Abstracts
+Extended Abstracts
+Images
+Links to Wikipedia Article
+External Links 
+Homepages
+
+
+
+== misc ==
+Geographic Coordinates	
+
+== crosslinks ==
+Pagelinks
+Redirects (exact crosslinks)
+Disambiguation Links

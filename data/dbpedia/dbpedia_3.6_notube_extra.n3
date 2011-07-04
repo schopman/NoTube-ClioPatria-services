@@ -1,0 +1,4 @@
+@prefix owl: 			<http://www.w3.org/2002/07/owl#>.
+@prefix dbpedia-owl: 	<http://dbpedia.org/ontology/>.
+
+dbpedia-owl:influenced owl:inverseOf dbpedia-owl:influencedBy .

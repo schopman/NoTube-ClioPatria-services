@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:event="http://purl.org/NET/c4dn/event.owl#" 
+xmlns:foaf="http://xmlns.com/foaf/0.1/" 
+xmlns:status="http://www.w3.org/2003/06/sw-vocab-status/ns#" 
+xmlns:owl="http://www.w3.org/2002/07/owl#" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema#" 
+xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+xmlns:vann="http://purl.org/vocab/vann/" 
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+xmlns:skos="http://www.w3.org/2004/02/skos/core#" 
+xmlns:days="http://ontologi.es/days#" 
+xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" 
+xmlns:wi="http://xmlns.notu.be/wi#">
+
+	<owl:Ontology rdf:about="http://xmlns.notu.be/wi#">
+		<vann:preferredNamespaceUri>http://xmlns.notu.be/wi#</vann:preferredNamespaceUri>
+		<vann:preferredNamespacePrefix>wi</vann:preferredNamespacePrefix>
+		<dc:title>A vocabulary for weighted interests</dc:title>
+		<rdfs:comment>Draft vocabulary for describing preferences within contexts</rdfs:comment>
+		<foaf:maker rdf:resource="http://swordfish.rdfweb.org/people/libby/rdfweb/webwho.xrdf#me"/>
+		<foaf:maker rdf:resource="http://danbri.org/foaf.rdf#danbri"/>
+		<foaf:maker rdf:resource="http://semantictweet.com/der42#me"/>
+		<foaf:maker rdf:resource="http://tobyinkster.co.uk/#i"/>
+	</owl:Ontology>
+
+	<rdfs:Class rdf:about="http://xmlns.notu.be/wi#WeightedInterest">
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>A Weighted Interest</rdfs:label>
+		<rdfs:comment>A weighted interest object</rdfs:comment>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="http://xmlns.notu.be/wi#Context">
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>A Context object</rdfs:label>
+		<rdfs:comment>A context object</rdfs:comment>
+	</rdfs:Class>
+
+	<owl:ObjectProperty rdf:about="http://xmlns.notu.be/wi#preference">
+                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>A preference</rdfs:label>
+		<rdfs:comment>A link between an agent and a weighted interest</rdfs:comment>
+		<rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+		<rdfs:range rdf:resource="http://xmlns.notu.be/wi#WeightedInterest"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="http://xmlns.notu.be/wi#notInterestedIn">
+                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>Something of no interest</rdfs:label>
+		<rdfs:comment>A link between an agent and a topic of no interest to them</rdfs:comment>
+		<rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+		<rdfs:range rdf:resource="http://xmlns.notu.be/wi#DocumentsAndConcepts"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="http://xmlns.notu.be/wi#evidence">
+                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>Evidence</rdfs:label>
+		<rdfs:comment>A link between a context and evidence supporting the interpretation fo preferences in a context</rdfs:comment>
+		<rdfs:domain rdf:resource="http://xmlns.notu.be/wi#Context"/>
+		<rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="http://xmlns.notu.be/wi#hasContext">
+                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>A context</rdfs:label>
+		<rdfs:comment>A link between a WeightedInterest and Context</rdfs:comment>
+		<rdfs:domain rdf:resource="http://xmlns.notu.be/wi#WeightedInterest"/>
+		<rdfs:range rdf:resource="http://xmlns.notu.be/wi#Context"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="http://xmlns.notu.be/wi#topic">
+                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/interest"/>
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>A topic</rdfs:label>
+		<rdfs:comment>A topic of the weighted interest</rdfs:comment>
+		<rdfs:domain rdf:resource="http://xmlns.notu.be/wi#WeightedInterest"/>
+		<rdfs:range rdf:resource="http://xmlns.notu.be/wi#DocumentsAndConcepts"/>
+	</owl:ObjectProperty>
+
+        <rdfs:Class rdf:about="http://xmlns.notu.be/wi#DocumentsAndConcepts">
+         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+         <rdfs:label>Documents and concepts</rdfs:label>
+         <rdfs:comment>The union of documents and concepts</rdfs:comment>
+	 <status:term_status>unstable</status:term_status>
+         <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Document"/>
+          <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+         </owl:unionOf>
+        </rdfs:Class>
+
+	<owl:ObjectProperty rdf:about="http://xmlns.notu.be/wi#location">
+                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:subPropertyOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>A location</rdfs:label>
+		<rdfs:comment>A context location</rdfs:comment>
+		<rdfs:domain rdf:resource="http://xmlns.notu.be/wi#Context"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="http://xmlns.notu.be/wi#device">
+                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>A device</rdfs:label>
+		<rdfs:comment>A document describing a device</rdfs:comment>
+		<rdfs:domain rdf:resource="http://xmlns.notu.be/wi#Context"/>
+		<rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+	</owl:ObjectProperty>
+       
+	<owl:ObjectProperty rdf:about="http://xmlns.notu.be/wi#timePeriod">
+                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/interest"/>
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>A time period</rdfs:label>
+		<rdfs:comment>A time period of a context</rdfs:comment>
+		<rdfs:domain rdf:resource="http://xmlns.notu.be/wi#Context"/>
+		<rdfs:range rdf:resource="http://xmlns.notu.be/wi#TimeIntervalsAndInstants"/>
+	</owl:ObjectProperty>
+
+       <rdfs:Class rdf:about="http://xmlns.notu.be/wi#TimeIntervalsAndInstants">
+         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+         <rdfs:label>Intervals and instants</rdfs:label>
+	 <status:term_status>unstable</status:term_status>
+         <rdfs:comment>The union of all days intervals and instants</rdfs:comment>
+         <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://ontologi.es/days#MondayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#MondayInstant"/>
+          <owl:Class rdf:about="http://ontologi.es/days#TuesdayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#TuesdayInstant"/>
+          <owl:Class rdf:about="http://ontologi.es/days#WednesdayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#WednesdayInstant"/>
+          <owl:Class rdf:about="http://ontologi.es/days#ThursdayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#ThursdayInstant"/>
+          <owl:Class rdf:about="http://ontologi.es/days#FridayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#FridayInstant"/>
+          <owl:Class rdf:about="http://ontologi.es/days#SaturdayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#SaturdayInstant"/>
+          <owl:Class rdf:about="http://ontologi.es/days#SundayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#SundayInstant"/>
+          <owl:Class rdf:about="http://ontologi.es/days#WeekdayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#WeekdayInstant"/>
+          <owl:Class rdf:about="http://ontologi.es/days#WeekendDayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#WeekendDayInstant"/>
+          <owl:Class rdf:about="http://ontologi.es/days#DayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#DayInstant"/>
+          <owl:Class rdf:about="http://ontologi.es/days#HolidayInterval"/>
+          <owl:Class rdf:about="http://ontologi.es/days#HolidayInstant"/>
+         </owl:unionOf>
+       </rdfs:Class>
+
+
+	<owl:DatatypeProperty rdf:about="http://xmlns.notu.be/wi#weight">
+                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>Weight</rdfs:label>
+		<rdfs:comment>The weight on the topic</rdfs:comment>
+		<rdfs:domain rdf:resource="http://xmlns.notu.be/wi#WeightedInterest"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+	</owl:DatatypeProperty>
+
+	<owl:DatatypeProperty rdf:about="http://xmlns.notu.be/wi#scale">
+                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+		<status:term_status>unstable</status:term_status>
+		<rdfs:label>Scale</rdfs:label>
+		<rdfs:comment>The scale with respect to the weight - of the form 0..9. Scale can be any range of integers.</rdfs:comment>
+		<rdfs:domain rdf:resource="http://xmlns.notu.be/wi#WeightedInterest"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+	</owl:DatatypeProperty>
+
+<!-- other classes referred to but not defined here -->
+<!-- the labels are required in order for some of the queries to work propertly-->
+       <rdfs:Class rdf:about="http://www.w3.org/2001/XMLSchema#int">
+         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2001/XMLSchema#"/>
+         <rdfs:label>Integer</rdfs:label>
+       </rdfs:Class>
+       <rdfs:Class rdf:about="http://www.w3.org/2001/XMLSchema#string">
+         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2001/XMLSchema#"/>
+         <rdfs:label>String</rdfs:label>
+       </rdfs:Class>
+       <rdfs:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+         <rdfs:label>Concept</rdfs:label>
+       </rdfs:Class>
+       <rdfs:Class rdf:about="http://xmlns.com/foaf/0.1/Document">
+         <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+         <rdfs:label>Document</rdfs:label>
+       </rdfs:Class>
+       <rdfs:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
+         <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+         <rdfs:label>Agent</rdfs:label>
+       </rdfs:Class>
+       <rdf:Property rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#location">
+         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+         <rdfs:label>Location</rdfs:label>
+       </rdf:Property>
+</rdf:RDF>

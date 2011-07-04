@@ -1,0 +1,4 @@
+This directory is where the main modules find their RDF data. Most directories do not contain any data initially, but it is fetched by executing:
+./fetch.sh
+
+Not all data in these directories is used. See the loaddata.pl files in ../1recommend/ and ../2enrich/ to see what data are required. When required data is not present, ClioPatria will display a warning.
